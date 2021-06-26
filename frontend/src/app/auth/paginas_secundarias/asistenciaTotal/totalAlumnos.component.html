@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="contenedorPrincipal card table-responsive" style="margin-bottom: 2cm !important; margin-top: 2cm !important;">
+  <button type="button" class="btn btn-success" style="margin-bottom: 10px !important; background-color: green;" (click)="exportElmToExcel()"> <i class="bi bi-file-earmark-arrow-down"></i>   Exportar a Excel</button>
+
+    <table class="table table-striped table-hover" #tablaAsistenciaTotal>
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Clases Actuales Online</th>
+                <th scope="col">Porcentaje Online</th>
+                <th scope="col">Clases Actuales Presenciales</th>
+                <th scope="col">Porcentaje Presencial</th>
+                <th scope="col">Porcentaje Total</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let csvData of asistenciasOrdenadasPorAlumno; let i = index;">
+
+                <td scope="row">{{i+1}}</td>
+                <td scope="row">
+                  <span>{{csvData.nombre}}</span>
+                </td>
+                <td scope="row">
+                  <span>{{numClasesActualesOnline}}</span>
+                </td>
+                <td scope="row">
+                  <span>{{calcularPorcentajes(true, csvData.asistencias)}} %</span>
+                </td>
+                <td scope="row">
+                  <span>{{numClasesActualesPresenciales}}</span>
+                </td>
+                <td scope="row">
+                  <span>{{calcularPorcentajes(false, csvData.asistencias)}} %</span>
+                </td>
+                <td scope="row">
+                  <span>{{calcularPorcentajeTotal(csvData.asistencias)}} %</span>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<app-footer></app-footer>

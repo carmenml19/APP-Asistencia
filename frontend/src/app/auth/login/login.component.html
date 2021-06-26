@@ -1,0 +1,27 @@
+<div class="div-body">
+
+    <div class="div-form">
+        <img src="../../../assets/imagenes/escudo_ucam.png" class="imagenUCAM" />
+
+        <form autocomplete="off" [formGroup]="forma" #frmLogin="ngForm" (ngSubmit)="onLogin(frmLogin)">
+
+            <div class="form-group" style="width: 300px; margin-bottom: 30px; ">
+                <label for="exampleInputEmail1" style="margin-bottom:10px">Email </label>
+                <input formControlName="email" name="email" [class.is-invalid]="emailNoValido()" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <small *ngIf="emailNoValido()" class="from-text text-danger">Introduzca el email correctamente</small>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="exampleInputPassword1" style="margin-bottom:10px">Password</label>
+                <input formControlName="password" name="password" [class.is-invalid]="passwordNoValido()" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                <small *ngIf="passwordNoValido()" class="from-text text-danger">Introduzca la contraseña</small>
+            </div>
+
+
+            <div style="text-align: center; align-items: center; justify-content: center; margin-top: 40px;">
+                <input type="submit" class="btn btn-primary boton-acceder" value="Acceder">
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+.card-style {
+    width: auto;
+    align-items: center;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+}
+
+.card-body-style {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-amarillo {
+    max-width: 18rem;
+    background-color: #EEA900;
+    width: 495px;
+    margin-right: 90px;
+    color: white;
+}
+
+.card-verde {
+    max-width: 18rem;
+    background-color: #284E4A;
+    width: 495px;
+    color: white;
+}
+
+.card-marron {
+    max-width: 18rem;
+    background-color: #86734E;
+    width: 495px;
+    margin-right: 90px;
+    color: white;
+}
+
+.card-azul {
+    max-width: 18rem;
+    background-color: #004379;
+    width: 495px;
+    color: white;
+}
+
+.boton-desconectar {
+    background-color: #9C2525;
+    font-weight: bold;
+    margin-bottom: 370px;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+}

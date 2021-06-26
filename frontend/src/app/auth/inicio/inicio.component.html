@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #004379">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/']" style="margin-left: auto; margin-right: auto;">
+            <img src="https://www.ucam.edu/sites/default/files/public/la-universidad/identidad-visual/logo_ucam_azul_c.png" width="140" height="100">
+        </a>
+    </div>
+</nav>
+
+
+<body>
+    <div class="card card-style">
+        <div class="card-body card-body-style">
+            <a [routerLink]="['/totalAlumnos']">
+                <div class="card mb-3 card-amarillo">
+                    <div class="card-header" style="font-weight: bold;">Asistencia Total Alumnos</div>
+                    <div class="card-body">
+                        <img src="assets/imagenes/graduacion3.png" width="90" height="90" />
+                    </div>
+                </div>
+            </a>
+            <a [routerLink]="['/manual']">
+                <div class="card card-verde mb-3">
+                    <div class="card-header" style="font-weight: bold;">Asistencia Presencial</div>
+                    <div class="card-body">
+                        <img src="assets/imagenes/leyendo.png" width="90" height="100" />
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card-body card-body-style">
+            <a [routerLink]="['/documentos']">
+                <div class="card card-marron mb-3">
+                    <div class="card-header" style="font-weight: bold;">Documentos</div>
+                    <div class="card-body">
+                        <img src="assets/imagenes/papel.png" width="90" height="90" />
+                    </div>
+                </div>
+            </a>
+            <a [routerLink]="['/actas']">
+                <div class="card card-azul mb-3">
+                    <div class="card-header" style="font-weight: bold;">Actas</div>
+                    <div class="card-body">
+                        <img src="assets/imagenes/gorra.png" width="90" height="100" />
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary boton-desconectar " (click)="logout()">Salir</button>
+    </div>
+</body>
+
+
+
+<app-footer></app-footer>

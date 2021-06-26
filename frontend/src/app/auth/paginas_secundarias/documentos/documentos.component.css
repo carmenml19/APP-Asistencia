@@ -1,0 +1,21 @@
+.botonSubir {
+    background-color: #EEA900; 
+    font-weight: 500; 
+    width: 100px; 
+    height: 20%; 
+    text-align: center;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     margin: auto;
+}
+  
+  .csv-result-table {
+    margin: 5%;
+    border: 1px solid #73AD21;
+  
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }

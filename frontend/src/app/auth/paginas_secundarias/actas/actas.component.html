@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="card" style="margin-bottom: 60px; ">
+    <div class="card-body" style="margin-top: 30px; margin-bottom: 30px; ">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Archivos Actas Alumnos</h5><br>
+                    <p class="card-text">Seleccione el archivo que desea subir:
+                        <input type="file" style="float: right;" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
+                    </p><br>
+                    <input class="btn btn-primary botonSubir" *ngIf="isBonificacionCalculada && !isNotasYaGuardadas" type="submit" value="Guardar" (click)="guardarDatos()">
+                    <input class="btn btn-primary botonBonificacion" *ngIf="!isBonificacionCalculada" type="button" value="Calcular Bonificación" (click)="calcularBonificacion()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="contenedorPrincipal card table-responsive" >
+
+      <button type="button" class="btn btn-success btn-lg btn-block " style="margin-bottom: 10px !important; background-color: green;" (click)="exportElmToExcel()"> <i class="bi bi-file-earmark-arrow-down"></i>   Exportar a Excel</button>
+        <table class="table table-striped table-hover" #tablaActas>
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">NOTA CONV. ORDINARIA</th>
+                    <th scope="col">NOTA CONV. EXTRAORDINARIA</th>
+                    <th scope="col" *ngIf="isBonificacionCalculada">PORCENTAJE TOTAL</th>
+                    <th scope="col" *ngIf="isBonificacionCalculada">BONIFICACION</th>
+                    <th colspan="2" *ngIf="isBonificacionCalculada">¿APLICAR?</th>
+                    <th scope="col" *ngIf="isBonificacionCalculada">NOTA FINAL ORD.</th>
+                    <th scope="col" *ngIf="isBonificacionCalculada">NOTA FINAL EXTRA.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alumno of arrayNotas; let i = index;">
+
+                    <td scope="row">{{i+1}}</td>
+                    <td scope="row">
+                      {{alumno.nombre}}
+                    </td>
+                    <td scope="row">
+                      {{alumno.notaOrdinaria}}
+                    </td>
+                    <td scope="row">
+                      {{alumno.notaExtraordinaria}}
+                    </td>
+                    <td scope="row" *ngIf="isBonificacionCalculada">
+                      {{alumno.asistenciaTotal}}
+                    </td>
+                    <td scope="row" *ngIf="isBonificacionCalculada">
+                      {{alumno.bonificacion}}
+                    </td>
+                    <td colspan="2" style="text-align: center !important;" *ngIf=" alumno.aplica === true && isBonificacionCalculada">
+                      <button class="btn" style="background-color: red;" (click)="aplicarBonificacion(false, i)"><i class="bi bi-x-square-fill"></i></button>
+                    </td>
+                    <td colspan="2" style="text-align: center !important;" *ngIf="(alumno.aplica === undefined || alumno.aplica === false) && isBonificacionCalculada">
+                      <button class="btn" style="background-color: green;" (click)="aplicarBonificacion(true, i)"><i class="bi bi-check-circle"></i></button>
+                    </td>
+                    <td scope="row" *ngIf="isBonificacionCalculada" style="background-color: #91F88E; text-align: center; vertical-align: middle;">
+                      {{alumno.notaFinalOrdinaria}}
+                    </td>
+                    <td scope="row" *ngIf="isBonificacionCalculada" style="background-color: #91F88E; text-align: center; vertical-align: middle;">
+                      {{alumno.notaFinalExtraordinaria}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<app-footer></app-footer>

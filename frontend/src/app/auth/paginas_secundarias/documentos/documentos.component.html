@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="card" style="margin-bottom: 60px; ">
+    <div class="card-body" style="margin-top: 30px; margin-bottom: 30px; ">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Archivos Asistencia</h5><br>
+                    <p class="card-text">Seleccione el archivo que desea subir:
+                        <input type="file" style="float: right;" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
+                    </p><br>
+                    <input class="btn btn-primary botonSubir" type="submit" value="Guardar" (click)="guardarDatos()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="contenedorPrincipal card table-responsive">
+    <div class="csv-result-table">
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>NOMBRE</th>
+                    <th>ROL</th>
+                    <th>PRIMERA CONEXIÓN</th>
+                    <th>ULTIMA SALIDA</th>
+                    <th>TIEMPO TOTAL</th>
+                    <th>Nº CONEXIONES</th>
+                    <th>CRÉDITOS</th>
+                    <th>ASISTENCIA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let csvData of csvRecords; let i = index;">
+
+                    <td>{{i+1}}</td>
+                    <td>
+                        {{csvData[0].split(',')[0]}}
+                    </td>
+                    <td>
+                        {{csvData[0].split(',')[2]}}
+                    </td>
+                    <td>
+                        {{csvData[0].split(',')[4]}}
+                    </td>
+                    <td>
+                        {{csvData[0].split(',')[5]}}
+                    </td>
+                    <td>
+                        {{csvData[0].split(',')[6]}}
+                    </td>
+                    <td>
+                        {{csvData[0].split(',')[7]}}
+                    </td>
+                    <td>
+                        {{claseSeleccionada.split('-')[2]}}
+                    </td>
+                    <td style="background-color: #91F88E; text-align: center; vertical-align: middle;" *ngIf="validarTiempoEnClase(csvData[0].split(',')[6])">
+                      VÁLIDA
+                    </td>
+                    <td style="background-color: #DB6B5F; text-align: center; vertical-align: middle;" *ngIf="!validarTiempoEnClase(csvData[0].split(',')[6])">
+                      NO VÁLIDA
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-footer></app-footer>

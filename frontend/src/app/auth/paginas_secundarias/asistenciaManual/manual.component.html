@@ -1,0 +1,44 @@
+<app-header>
+</app-header>
+
+<body>
+  <div class="contenedorPrincipal card table-responsive">
+
+      <table class="table table-striped table-hover">
+          <thead class="table-light">
+              <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th style="text-align: center !important;"><button type="button" color="primary" class="btn btn-primary" (click)="cambiarClase()">Cambiar Clase</button></th>
+                  <th style="text-align: center !important;"><button type="button" color="primary" class="btn btn-primary" (click)="guardarAsistenciaBD()">Guardar Asistencia</button></th>
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let alumno of listaAlumnos; let i = index;">
+
+                  <td>{{i+1}}</td>
+                  <td>
+                      <span>{{alumno.name}}</span>
+                  </td>
+                  <td style="text-align: center !important;" *ngIf="alumno.asiste === undefined || alumno.asiste === null">
+                      <button class="btn" style="background-color: green;" (click)="marcarAsistencia(true, i)"><i class="bi bi-check-circle"></i></button>
+                  </td>
+                  <td style="text-align: center !important;" *ngIf="alumno.asiste === undefined || alumno.asiste === null">
+                      <button class="btn" style="background-color: red;" (click)="marcarAsistencia(false, i)"><i class="bi bi-x-square-fill"></i></button>
+                  </td>
+                  <td colspan="2" style="text-align: center !important;" *ngIf="alumno.asiste !== undefined && alumno.asiste !== null && alumno.asiste === true">
+                    <button class="btn" style="background-color: red;" (click)="marcarAsistencia(false, i)"><i class="bi bi-x-square-fill"></i></button>
+                  </td>
+                  <td colspan="2" style="text-align: center !important;" *ngIf="alumno.asiste !== undefined && alumno.asiste !== null && alumno.asiste === false">
+                    <button class="btn" style="background-color: green;" (click)="marcarAsistencia(true, i)"><i class="bi bi-check-circle"></i></button>
+                  </td>
+
+              </tr>
+          </tbody>
+      </table>
+
+  </div>
+
+</body>
+
+<app-footer></app-footer>
