@@ -1,17 +1,18 @@
 .botonSubir {
   background-color: #EEA900;
   font-weight: 500;
-  width: 100px;
-  height: 20%;
+  width: 130px; 
+    height: 50px; 
   text-align: center;
    align-items: center;
    display: flex;
    justify-content: center;
    margin: auto;
+   margin-top: 15px;
 }
 
 .botonBonificacion {
-  background-color: #73AD21;
+  background-color: #86734e;
   font-weight: 500;
   width: 200px;
   height: 20%;

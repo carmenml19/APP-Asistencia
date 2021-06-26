@@ -1,13 +1,14 @@
 <app-header></app-header>
 
-<div class="card" style="margin-bottom: 60px; ">
+<div class="card" style="margin-bottom: 60px;align-items: center; ">
     <div class="card-body" style="margin-top: 30px; margin-bottom: 30px; ">
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="width: auto;" >
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">Archivos Asistencia</h5><br>
-                    <p class="card-text">Seleccione el archivo que desea subir:
+                    <h5 class="card-title" style="text-align: center; font-weight: bold; margin-bottom: 25px;">Archivos Asistencia</h5><br>
+                    <p class="card-text">Seleccione el archivo que desea subir:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="file" style="float: right;" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
+                        
                     </p><br>
                     <input class="btn btn-primary botonSubir" type="submit" value="Guardar" (click)="guardarDatos()">
                 </div>
@@ -18,7 +19,7 @@
 
 
 
-<div class="contenedorPrincipal card table-responsive">
+
     <div class="csv-result-table">
         <table class="table table-striped table-hover">
             <thead class="table-light">
@@ -69,5 +70,5 @@
             </tbody>
         </table>
     </div>
-</div>
+
 <app-footer></app-footer>

@@ -53,7 +53,7 @@ export class TotalAlumnosComponent implements OnInit {
         allowOutsideClick: false,
         showCancelButton: true,
         inputOptions: {
-          'Primero Informática': {
+          '1º Curso ': {
             '1-ALG-6': 'Álgebra Lineal',
             '2-FTC-4,5': 'Fundamentos de Computadores',
             '3-LAB-6': 'Laboratorio de Informática',
@@ -68,7 +68,7 @@ export class TotalAlumnosComponent implements OnInit {
             '12-ETC-3': 'Ética'
 
           },
-          'Segundo Informática': {
+          '2º Curso': {
             '1-ALG-4,5': 'Algoritmia',
             '2-BBD-6': 'Bases de Datos',
             '3-EST-6': 'Estadística',
@@ -81,7 +81,7 @@ export class TotalAlumnosComponent implements OnInit {
             '10-SGI-6': 'Sistemas de Gestión de la Información',
             '11-ISW-6': 'Ingeniería del Software'
           },
-          'Tercero Informática': {
+          '3º Curso': {
             '1–PGP-4,5': 'Programación Paralela',
             '2-DD1-4,5': 'Desarrollo de Aplicaciones Distribuidas 1',
             '3-IGR-4,5': 'Ingeniería de Requisitos',
@@ -95,7 +95,7 @@ export class TotalAlumnosComponent implements OnInit {
             '11-SIF-4,5': 'Seguridad de la Información',
             '12-PGW-4,5': 'Programación Web'
           },
-          'Cuarto Informática': {
+          '4º Curso': {
             '1–ABD-4,5': 'Administración de Bases de Datos',
             '2-CSW-4,5': 'Calidad del Software',
             '3-ADM-4,5': 'Aplicaciones para Dispositivos Móviles',
@@ -107,7 +107,7 @@ export class TotalAlumnosComponent implements OnInit {
             '9-TFG-18': 'Trabajo Fin de Grado'
           }
         },
-        inputPlaceholder: 'Seleccine una clase',
+        inputPlaceholder: 'Seleccione una clase',
         inputValidator: (value) => {
           return new Promise((resolve) => {
             if (value !== '') {

@@ -109,7 +109,7 @@ export class ActasComponent implements OnInit {
             '9-TFG-18': 'Trabajo Fin de Grado'
           }
         },
-        inputPlaceholder: 'Seleccine una clase',
+        inputPlaceholder: 'Seleccione una clase',
         inputValidator: (value) => {
           return new Promise((resolve) => {
             if (value !== '') {
