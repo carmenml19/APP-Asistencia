@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { TotalAlumnosComponent } from './auth/paginas_secundarias/asistenciaTotal/totalAlumnos.component';
 import { ActasComponent } from './auth/paginas_secundarias/actas/actas.component';
+import { PruebaComponent } from './paginas_secundarias/prueba/prueba.component';
 
 
 
@@ -37,7 +38,8 @@ import { ActasComponent } from './auth/paginas_secundarias/actas/actas.component
     DocumentosComponent,
     ManualComponent,
     TotalAlumnosComponent,
-    ActasComponent
+    ActasComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,

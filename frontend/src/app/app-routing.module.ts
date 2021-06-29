@@ -6,6 +6,7 @@ import { DocumentosComponent } from './auth/paginas_secundarias/documentos/docum
 import { ManualComponent } from './auth/paginas_secundarias/asistenciaManual/manual.component';
 import { TotalAlumnosComponent } from './auth/paginas_secundarias/asistenciaTotal/totalAlumnos.component';
 import { ActasComponent } from './auth/paginas_secundarias/actas/actas.component';
+import { PruebaComponent } from './paginas_secundarias/prueba/prueba.component';
 
 const routes: Routes = [
     { path: '', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'totalAlumnos', component: TotalAlumnosComponent},
     { path: 'documentos', component: DocumentosComponent},
     { path: 'actas', component: ActasComponent},
+    { path: 'prueba', component: PruebaComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'login'}
 ];
 
