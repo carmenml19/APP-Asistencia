@@ -32,78 +32,79 @@ export class DocumentosComponent implements OnInit {
     if (this.usuarioService.usuario === undefined || this.usuarioService.usuario === null) {
       this.usuarioService.logout();
     } else {
-      const clase = await Swal.fire({
-        title: 'Clases',
-        input: 'select',
-        allowOutsideClick: false,
-        showCancelButton: true,
-        inputOptions: {
-          'Primero Informática': {
-            '1-ALG-6': 'Álgebra Lineal',
-            '2-FTC-4,5': 'Fundamentos de Computadores',
-            '3-LAB-6': 'Laboratorio de Informática',
-            '4-FP1-4,5': 'Fundamentos de Programación 1',
-            '5-CAL-6': 'Cálculo',
-            '6-TEO-3': 'Teología',
-            '7-ETR-6' : 'Estructura de Computadores',
-            '8-MAT-4,5': 'Matemática Discreta',
-            '9-FIS-6': 'Física',
-            '10-FP2-4,5': 'Fundamentos de Programación 2',
-            '11-FAO-6': 'Fundamentos de Administración y Organización de Empresas',
-            '12-ETC-3': 'Ética'
-
-          },
-          'Segundo Informática': {
-            '1-ALG-4,5': 'Algoritmia',
-            '2-BBD-6': 'Bases de Datos',
-            '3-EST-6': 'Estadística',
-            '4-POO-4,5': 'Programación Orientada a Objetos',
-            '5-IPM-4,5': 'Interfaz Persona Máquina',
-            '6-ALE-4,5': 'Aspectos Legales y Éticos de la Informática',
-            '7-SSO-6': 'Sistemas Operativos',
-            '8-PVA-6': 'Programación Visual Avanzada',
-            '9-RCS-6': 'Redes de Computadores',
-            '10-SGI-6': 'Sistemas de Gestión de la Información',
-            '11-ISW-6': 'Ingeniería del Software'
-          },
-          'Tercero Informática': {
-            '1–PGP-4,5': 'Programación Paralela',
-            '2-DD1-4,5': 'Desarrollo de Aplicaciones Distribuidas 1',
-            '3-IGR-4,5': 'Ingeniería de Requisitos',
-            '4-TAC-6': 'Tecnologías Avanzadas de Comunicación',
-            '5-SIE-6': 'Soluciones Informáticas para la Empresa',
-            '6-AQC-4,5': 'Arquitectura de Computadores',
-            '7-DD2-6': 'Desarrollo de Aplicaciones Distribuidas 2',
-            '8-GPI-4,5': 'Gestión de Proyectos Informáticos',
-            '9-MSW-6': 'Modelado del Software',
-            '10-SIT-4,5': 'Sistemas Inteligentes',
-            '11-SIF-4,5': 'Seguridad de la Información',
-            '12-PGW-4,5': 'Programación Web'
-          },
-          'Cuarto Informática': {
-            '1–ABD-4,5': 'Administración de Bases de Datos',
-            '2-CSW-4,5': 'Calidad del Software',
-            '3-ADM-4,5': 'Aplicaciones para Dispositivos Móviles',
-            '4-ASI-6': 'Administración de Sistemas',
-            '5-IGC-6': 'Ingeniería del Conocimiento',
-            '6-PIS-6': 'Proyecto Integral de Ingeniería del Software',
-            '7-AYP-4,5': 'Auditoría y Peritaje',
-            '8-PIT-4,5': 'Proyecto Integral de Tecnologías de la Información',
-            '9-TFG-18': 'Trabajo Fin de Grado'
-          }
-        },
-        inputPlaceholder: 'Seleccione una clase',
-        inputValidator: (value) => {
-          return new Promise((resolve) => {
-            if (value !== '') {
-              this.claseSeleccionada = value;
-              resolve(null);
-            } else {
-              resolve('Necesita seleccionar una clase!');
+      let clase: any;
+      if (this.usuarioService.usuario.facultad.toString().toUpperCase() === 'INFORMATICA') {
+        clase = await Swal.fire({
+          title: 'Clases',
+          input: 'select',
+          allowOutsideClick: false,
+          showCancelButton: true,
+          inputOptions: {
+            'INGENIERÍA INFORMÁTICA': {
+              '1-SSO-6': 'Sistemas Operativos',
+              '2-PVA-6': 'Programación Visual Avanzada',
+              '3-RCS-6': 'Redes de Computadores', 
+              '4–PGP-4,5': 'Programación Paralela' 
+            },
+            'ARQUITECTURA': {
+              '1-EGI-6': 'Economía y Gestión Inmobiliaria',
+              '2-FYF-4,5': 'Arquitectura Sostenible'
+            },
+            'BIOTECNOLOGÍA': {
+              '1–BQM-4,5': 'Bioquímica Metabólica',
+              '2-NTR-6': 'Nutrigenómica'
             }
-          });
-        }
-      });
+          },
+          inputPlaceholder: 'Seleccione una clase',
+          inputValidator: (value) => {
+            return new Promise((resolve) => {
+              if (value !== '') {
+                this.claseSeleccionada = value;
+                resolve(null);
+              } else {
+                resolve('Necesita seleccionar una clase!');
+              }
+            });
+          }
+        });
+      } else {
+        clase = await Swal.fire({
+          title: 'Clases',
+          input: 'select',
+          allowOutsideClick: false,
+          showCancelButton: true,
+          inputOptions: {
+            'MEDICINA': {
+              '1-EMB-6': 'Embriología Humana',
+              '2-OTO-4,5': 'Otorrinolaringología',
+              '4-TXC-4,5': 'Toxicología Clínica'  
+            },
+            'FARMACIA': {
+              '1-FPT-6': 'Fisiopatología',
+              '2-FYF-4,5': 'Farmacognosia y Fitoterapia'
+            },
+            'FISIOTERAPIA': {
+              '1–FPS-4,5': 'Farmacología para Fisioterapeutas',
+              '2-CNS-6': 'Cinesiterapia',
+              '3-BLG-6': 'Biología Humana',
+              '4-VFN-4,5': 'Vendajes Funcionales y Neuromusculares'
+            }
+          },
+          inputPlaceholder: 'Seleccione una clase',
+          inputValidator: (value) => {
+            return new Promise((resolve) => {
+              if (value !== '') {
+                this.claseSeleccionada = value;
+                resolve(null);
+              } else {
+                resolve('Necesita seleccionar una clase!');
+              }
+            });
+          }
+        });
+      }
+      
+
       if (clase.value === undefined || clase.value === null ) {
         this.router.navigateByUrl('/home');
       } else {
